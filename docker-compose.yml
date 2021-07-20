@@ -1,22 +1,28 @@
-version: "3"
+version: '3.7'
+
 services:
-  # selenium-hub:
-  #   build:
-  #     context: ./app
-  #   ports:
-  #     - "4444:4444"
-  #   expose: 
-  #     - 4444
-  chrome:
+  web-app:
+    build:
+      context: ./app
+    ports:
+       - 4000:4000
+    links:
+      - selenium-chrome-node
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.0.5
+  
+  selenium-chrome-node:
     build:
       context: ./test
-    ports:
-      - "5900:5900"
-    volumes:
-      - /test:/app
-    # depends_on:
-    #   - selenium-hub
-    environment:
-      - HUB_HOST=selenium-hub
-      - HUB_PORT=4444
-  
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.0.6
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
+          

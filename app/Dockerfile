@@ -11,4 +11,4 @@ RUN wget https://bootstrap.pypa.io/get-pip.py
 RUN python3 get-pip.py
 RUN pip install -r requirements.txt
 
-RUN python3 app.py
+CMD python3 app.py
