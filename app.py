@@ -8,7 +8,9 @@ def index():
     celsius = request.args.get("celsius", "")
     if celsius:
         fahrenheit = fahrenheit_from(celsius)
-       
+    else:
+        fahrenheit = ""
+
     return (
         	"""<h2> It's a simple web app! 🦊 </h2>"""
 		"""<br>"""
