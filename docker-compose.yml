@@ -1,0 +1,22 @@
+version: "3"
+services:
+  # selenium-hub:
+  #   build:
+  #     context: ./app
+  #   ports:
+  #     - "4444:4444"
+  #   expose: 
+  #     - 4444
+  chrome:
+    build:
+      context: ./test
+    ports:
+      - "5900:5900"
+    volumes:
+      - /test:/app
+    # depends_on:
+    #   - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+  

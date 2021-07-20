@@ -19,7 +19,7 @@ def index():
                 <input type="submit" value="Convert">
             </form>"""
         + "Fahrenheit: "
-        + fahrenheit
+        + '<a id="fahrenheit">' +fahrenheit+ '</a>'
 
     )
  
@@ -27,7 +27,7 @@ def index():
 def fahrenheit_from(celsius):
     """Convert Celsius to Fahrenheit degrees."""
     fahrenheit = float(celsius) * 9 / 5 + 32
-    fahrenheit = round(fahrenheit, 3)  # Round to three decimal places
+    fahrenheit = round(fahrenheit, 3) 
     return str(fahrenheit)
 
 @app.route("/<string:script>")
@@ -39,7 +39,7 @@ def run(script):
                 <input type="text" name="script">
                 <input type="submit" value="Run">
             </form>"""
-    + script
+    + '<a id="script">' + script + '</a>'
 ) 
 
 if __name__ == "__main__":
