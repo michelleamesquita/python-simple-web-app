@@ -9,8 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     name: SAST Validator
     steps:
-      - uses: actions/checkout@v2
-      - uses: michelleamesquita/sast-validator@v12
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: SAST
+        uses: michelleamesquita/sast-validator@v12
         with:
           path: ./app/
           language: python
