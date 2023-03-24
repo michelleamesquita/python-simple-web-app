@@ -4,10 +4,9 @@ on: [push]
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to validate SAST
+    name: SAST Validator
     steps:
-      - name: SAST
-        uses: michelleamesquita/sast-validator@v1
+      - uses: michelleamesquita/sast-validator@v1
         with:
           path: ./app
           language: python
