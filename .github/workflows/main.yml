@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     name: SAST Validator
     steps:
-      - uses: michelleamesquita/sast-validator@v8
+      - uses: michelleamesquita/sast-validator@v9
         with:
           path: ./app/
           language: python
