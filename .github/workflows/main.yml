@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     name: SAST Validator
     steps:
+      - uses: actions/checkout@v2
       - uses: michelleamesquita/sast-validator@v9
         with:
           path: ./app/
