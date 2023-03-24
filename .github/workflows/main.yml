@@ -11,5 +11,5 @@ jobs:
     steps:
       - uses: michelleamesquita/sast-validator@v2
         with:
-          path: ./app
+          path: ./app/
           language: python
