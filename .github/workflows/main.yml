@@ -10,7 +10,7 @@ jobs:
     name: SAST Validator
     steps:
       - name: SAST validator
-        uses: michelleamesquita/sast-validator@v21
+        uses: michelleamesquita/sast-validator@v22
         with:
           path: ./app/
           language: python
