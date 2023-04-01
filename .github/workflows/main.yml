@@ -6,19 +6,15 @@ on:
 jobs:
   node-docker:
     runs-on: ubuntu-latest
-#     container:
-#       image: michelleamesquita/sast:latest
+    container:
+      image: michelleamesquita/sast:latest
     steps:
          - name: Start SAST
-           uses: addnab/docker-run-action@v3
-           with:
-               image: michelleamesquita/sast:latest
-               options: -v ${{ github.workspace }}:/app
-               run: docker run -v $PWD/:/app michelleamesquita/sast:latest -d=./app -l=python
 #            run: docker run -v $PWD/:/app michelleamesquita/sast:latest -d=./app -l=python
-#            uses: docker://michelleamesquita/sast:latest
-#            with:
+           uses: docker://michelleamesquita/sast:latest
+           with:
 #              options: -v $PWD/:/app
-#              args: -d=./app/ -l=python
+             args: -d=./app/ -l=python
+             volumes: -v $PWD/:/app
              
              
