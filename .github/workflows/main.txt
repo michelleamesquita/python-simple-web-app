@@ -12,5 +12,5 @@ jobs:
          - name: Start SAST
            uses: docker://michelleamesquita/sast:latest
            with:
-             options: -v $PWD/:/app
+             options: -v $PWD/:/$PWD
              args: -d=./app/ -l=python
