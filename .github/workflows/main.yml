@@ -10,7 +10,7 @@ jobs:
       image: michelleamesquita/sast:latest
     steps:
          - name: Start SAST
-           uses: addnab/docker-run-action@v3
+           uses: docker://michelleamesquita/sast:latest
            with:
                image: michelleamesquita/sast:latest
                options: -v ${{ github.workspace }}:/app
