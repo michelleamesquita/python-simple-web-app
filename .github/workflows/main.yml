@@ -6,15 +6,18 @@ on:
 jobs:
   node-docker:
     runs-on: ubuntu-latest
-    container:
-      image: michelleamesquita/sast:latest
+#     container:
+#       image: michelleamesquita/sast:latest
     steps:
+         - name: Checkout repository content
+           uses: actions/checkout@v2 
+           
          - name: Start SAST
-#            run: docker run -v $PWD/:/app michelleamesquita/sast:latest -d=./app -l=python
-           uses: docker://michelleamesquita/sast:latest
-           with:
-#              options: -v $PWD/:/app
-             args: -d=./app/ -l=python
-             volumes: -v $PWD/:/app
+           run: docker run -v $PWD/:/app michelleamesquita/sast:latest -d=./app -l=python
+#            uses: docker://michelleamesquita/sast:latest
+#            with:
+# #              options: -v $PWD/:/app
+#              args: -d=./app/ -l=python
+#              volumes: -v $PWD/:/app
              
              
