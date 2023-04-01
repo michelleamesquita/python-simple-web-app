@@ -9,6 +9,9 @@ jobs:
     container:
       image: michelleamesquita/sast:latest
     steps:
+         - name: Pull docker
+           uses: docker://michelleamesquita/sast:latest
+           
          - name: Start SAST
            run: docker run -v $PWD/:/app michelleamesquita/sast:latest -d=./app -l=python
 #            uses: docker://michelleamesquita/sast:latest
