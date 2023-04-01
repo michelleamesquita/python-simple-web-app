@@ -10,9 +10,10 @@ jobs:
       image: michelleamesquita/sast:latest
     steps:
          - name: Start SAST
-           uses: docker://michelleamesquita/sast:latest
-           with:
-             volumes: -v $PWD/:/app
-             args: -d=./app/ -l=python
+         - run: docker run -v $PWD/:/app michelleamesquita/sast -d=./app -l=python
+#            uses: docker://michelleamesquita/sast:latest
+#            with:
+#              options: -v $PWD/:/app
+#              args: -d=./app/ -l=python
              
              
