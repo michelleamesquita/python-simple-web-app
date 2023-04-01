@@ -12,4 +12,4 @@ jobs:
          - name: Start SAST
            uses: docker://michelleamesquita/sast:latest
            with:
-             args: -v $PWD/:/app sast-validator -d=./app/ -l=python
+             args: -v $PWD/:/app sast -d=./app/ -l=python
