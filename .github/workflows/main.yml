@@ -13,5 +13,5 @@ jobs:
            uses: docker://michelleamesquita/sast:latest
            with:
              options: -v ${{ github.workspace }}/:/app
-             args: -d=./app/ -l=python
+             args: -d=./app -l=python
              
