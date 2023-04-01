@@ -14,10 +14,7 @@ jobs:
            with:
                image: michelleamesquita/sast:latest
                options: -v ${{ github.workspace }}:/app
-#                run: |
-#                       composer install
-#                       npm install
-#                       npm run production
+               run: docker run -v $PWD/:/app michelleamesquita/sast:latest -d=./app -l=python
 #            run: docker run -v $PWD/:/app michelleamesquita/sast:latest -d=./app -l=python
 #            uses: docker://michelleamesquita/sast:latest
 #            with:
