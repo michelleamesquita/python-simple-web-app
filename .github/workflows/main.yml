@@ -4,16 +4,11 @@ on:
     - main
 
 jobs:
-    compile:
-        name: Compile site assets
-        runs-on: ubuntu-latest
-        steps:
-          - name: Check out the repo
-            uses: actions/checkout@v2
-          - name: Run the build process with Docker
-            uses: addnab/docker-run-action@v3
-            with:
-                username: ${{ secrets.DOCKER_USERNAME }}
-                password: ${{ secrets.DOCKER_PASSWORD }}
-                image: michelleamesquita/sast:latest
-                options: -v $PWD/:/app sast -d=. -l=python
+  node-docker:
+    runs-on: ubuntu-latest
+    container:
+      image: michelleamesquita/sast:latest
+    steps:
+         - name: Start SAST
+           with:
+             args: -v $PWD/:/app sast-validator -d=./app/ -l=python
