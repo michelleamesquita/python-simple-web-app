@@ -10,7 +10,7 @@ jobs:
       image: michelleamesquita/sast:latest
     steps:
          - name: Pull docker
-           uses: docker://michelleamesquita/sast:latest
+         - uses: actions/checkout@v2
            
          - name: Start SAST
            run: docker run -v $PWD/:/app michelleamesquita/sast:latest -d=./app -l=python
